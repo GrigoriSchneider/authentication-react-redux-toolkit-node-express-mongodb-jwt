@@ -5,6 +5,10 @@ import { useGetAllProductsQuery } from "../slices/productsApi";
 
 const Home = () => {
   const { items: products, status } = useSelector((state) => state.products);
+  const auth = useSelector((state) => state.auth);
+
+  console.log(auth);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

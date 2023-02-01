@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import Home from "./components/Home";
@@ -16,12 +16,12 @@ function App() {
         <ToastContainer />
         <NavBar />
         <div className="content-container">
-          <Switch>
-            <Route path="/cart" component={Cart} />
-            <Route path="/not-found" component={NotFound} />
-            <Route path="/" exact component={Home} />
-            <Redirect to="/not-found" />
-          </Switch>
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/not-found" element={<NotFound />} />
+            <Route to="/not-found" />
+          </Routes>
         </div>
       </BrowserRouter>
     </div>
